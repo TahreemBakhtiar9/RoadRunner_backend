@@ -107,6 +107,39 @@ class RoadrunnerApplicationTests {
 
 	}
 
+	@Test
+	public void getAllUserInfo() throws Exception {
+		UserInfo userInfo1 = new UserInfo(1L, "Sabih", "address1", "0230943","1641324",null , null, 4564.4, 454.2, 5453.0);
+		UserInfo userInfo2 = new UserInfo(2L, "Atia", "address2", "034878344","75343321",null, null , 5646.4,5464.3,453.2);
+		UserInfo userInfo3 = new UserInfo(3L, "Tahreem", "address3", "98344334","3546546854",null, null, 456.321,9789.32,546.23);
+
+		ArrayList<UserInfo> userinfo = new ArrayList<>();
+		UserInfo.add(userInfo1);
+		UserInfo.add(userInfo2);
+		UserInfo.add(userInfo3);
+		when(userinfoRepo.findAll()).thenReturn(userinfo);
+		mvc.perform(get("/roadrunner/userinfo/get")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	public void addUserInfo() throws Exception {
+		UserInfo userInfo1 = new UserInfo(1L, "Sabih", "address1", "0230943","1641324",null , null, 4564.4, 454.2, 5453.0);
+		UserInfo userInfo2 = new UserInfo(2L, "Atia", "address2", "034878344","75343321",null, null , 5646.4,5464.3,453.2);
+		UserInfo userInfo3 = new UserInfo(3L, "Tahreem", "address3", "98344334","3546546854",null, null, 456.321,9789.32,546.23);
+		ArrayList<UserInfo> userInfo = new ArrayList<>();
+		userInfo.add(userInfo1);
+		userInfo.add(userInfo2);
+		userInfo.add(userInfo3);
+		
+		mvc.perform(post("/roadrunner/userinfo/post")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(jsonUserInfo.write(userInfo1).getJson()))
+				.andExpect(status().isOk());
+
+
 	
 
+}
 }

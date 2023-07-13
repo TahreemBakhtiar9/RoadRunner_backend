@@ -33,4 +33,6 @@ public class UserInfo {
     private double rentPrice;
     private double insurance;
     private double totalPrice;
+    public static void add(UserInfo userInfo1) {
+    }
 }
