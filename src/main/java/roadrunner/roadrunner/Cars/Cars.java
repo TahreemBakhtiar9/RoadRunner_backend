@@ -1,5 +1,7 @@
 package roadrunner.roadrunner.Cars;
 
+import java.util.Optional;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,9 @@ public class Cars {
     private String longDesc;
     private String imgLink;
     private double perDayRental;
+    public Optional<Cars> getCars() {
+        return null;
+    }
 
     
 }
