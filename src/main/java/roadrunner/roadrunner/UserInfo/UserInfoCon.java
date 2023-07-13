@@ -17,12 +17,12 @@ public class UserInfoCon {
     @Autowired
     private UserInfoRepo userInfoRepo;
     
-    @GetMapping("userinfo/get")
+    @GetMapping("/userinfo/get")
         public List<UserInfo> getAllUserInfo(){
             return userInfoRepo.findAll();
         }
     
-        @PostMapping("userinfo/post")
+        @PostMapping("/userinfo/post")
         public void addUserInfo(@RequestBody UserInfo userInfo){
             userInfoRepo.save(userInfo);
         }

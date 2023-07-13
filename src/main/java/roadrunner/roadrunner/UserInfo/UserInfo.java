@@ -1,6 +1,7 @@
 package roadrunner.roadrunner.UserInfo;
 
 import java.sql.Date;
+import java.sql.Time;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +29,8 @@ public class UserInfo {
     private String driverLicense;
     private Date pickUp;
     private Date dropOff;
+    private Time pickUpTime;
+    private Time dropOffTime;
     private double rentPrice;
     private double insurance;
     private double totalPrice;
